@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        ul li {
+            list-style: none;
+        }
+    </style>
+</head>
+  <body>
+      <div class="container">
+          <h1 class="text-center"> Tính tổng giá trị thu được</h1>
+    <form action="">
+        <div class="form-group">
+          <label for="coin-token">Số</label>
+          <input name="coin-token" type="number" class="form-control" id="coin-token" placeholder="Nhập số lượng" required>
+        </div>
+        <div class="form-group">
+          <label for="price">Giá</label>
+          <input type="number" class="form-control" id="price" placeholder="Giá" required>
+        </div>
+        <div class="form-group">
+            <label for="fee">Phí (%)</label>
+            <input type="number" class="form-control" id="fee" placeholder="Phí" required>
+          </div>
+        <button type="button" class="btn btn-primary" id="button">Tính</button>
+      </form>
+      <ul id="ul"></ul>
+    </div>
+    <!-- Optional JavaScript -->
+    <script>
+        window.addEventListener('DOMContentLoaded', function(){
+            var button= document.getElementById('button');
+            var ul= document.getElementById('ul');
+            button.addEventListener('click', function (){
+            var x = document.getElementById('coin-token').value;
+            var y = document.getElementById("price").value;
+            var z = document.getElementById("fee").value;
+            x = parseFloat(x); 
+            y = parseFloat(y);
+            z = parseFloat(z);
+            var multi = x*y-(x*y*z/100);
+            var li = document.createElement('li');
+            li.innerHTML = "Giá thu về: " + multi;
+                ul.appendChild(li);
+            })
+           
+        })
+    </script>
+</body>
+</html>
